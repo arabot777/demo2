@@ -47,6 +47,9 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/admin","roles[admin]");
         //不同接口使用不同权限访问,PermissionsAuthorizationFilter
         filterChainDefinitionMap.put("/edit","perms[edit]");
+
+        filterChainDefinitionMap.put("/druid/**","anon");
+
         //只要登录就可以访问其他接口，将不需要校验的接口排除
         filterChainDefinitionMap.put("/**","user");
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
